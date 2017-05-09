@@ -18,6 +18,7 @@
 
     <div class="col-sm-8 col-12">
       <%= @course.description %>
+      <%= image_tag @course.image, class: 'img-fluid' %>
     </div>
   </div>
 
@@ -29,6 +30,7 @@
           <div class="lesson">
             <%= link_to lesson_path(lesson) do %>
             <b><%= lesson.title %></b>
+            
             -
             <%= lesson.subtitle %>
             <% end %>
