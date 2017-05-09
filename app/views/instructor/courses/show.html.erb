@@ -5,7 +5,21 @@
       <%= @course.description %>
     </div>
     <br />
+     <%= link_to 'Preview As Student...', course_path(@course), class: 'btn btn-warning float-right' %>
+    <br class="clr" />
+
+    
     <div class="col-sm-4 col-12 text-center">
-      <%= link_to 'Add a new Section...', new_instructor_course_section_path, class: 'btn btn-primary btn-large' %>
+      <%= link_to 'Add a new Section...', new_instructor_course_section_path(@course), class: 'btn btn-primary btn-large' %>
     </div>
+    
+    <ul>
+    <% @course.sections.each do |section| %>
+      <li>
+        <%= section.title %>
+      </li>
+    <% end %>
+  </ul>
+    
+    
 </div>
