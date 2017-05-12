@@ -5,12 +5,11 @@ class LessonsController < ApplicationController
     
     end
     
-    private
-     def require_authorized_for_current_lesson
-     if current_user.enrolled_in?
-      redirect_to courses_path, alert: 'Error: Not Enrolled in this course.'
+    def require_authorized_for_current_lesson
+        if ! current_user.enrolled_in?(current_lesson.section.course)
+         redirect_to course_path, :alert => 'You Must Enroll In Course'
+        end
     end
-  end
 
     helper_method :current_lesson
     def current_lesson
