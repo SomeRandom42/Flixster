@@ -20,7 +20,7 @@ class Instructor::CoursesController < ApplicationController
     end    
    
    def show
-     
+        @lesson = Lesson.new
         @section = Section.new
    end   
    
